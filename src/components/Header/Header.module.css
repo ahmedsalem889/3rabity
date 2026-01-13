@@ -1,0 +1,48 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  display: flex;
+  gap: 41px;
+}
+
+.header .logo img {
+  width: 92px;
+  height: 90px;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  transition: color 0.3s;
+}
+
+.link:hover,
+.active {
+  color: var(--primary-color);
+}
+
+.searchBtn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

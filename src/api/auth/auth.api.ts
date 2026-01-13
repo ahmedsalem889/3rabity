@@ -1,34 +1,25 @@
 import { baseURL } from "../consts"
-import type { LoginDTO, LoginReturnDTO, RegisterDTO } from "./auth.dto";
+import type { LoginDTO, RegisterDTO } from "./auth.dto";
 
-export const authApi = {
 
-    register: async (data: RegisterDTO) => {
+export const register = async (data: RegisterDTO) => {
 
-        const response = await fetch(`${baseURL}/auth/register`, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-        const result = await response.json()
+    const response = await fetch(`${baseURL}/register`, {
+        method: "POST",
+        body: JSON.stringify(data)
+    });
+    const result = await response.json()
 
-        return result;
-    },
+    return result;
+}
 
-    login: async (data: LoginDTO): Promise<LoginReturnDTO> => {
+export const login = async (data: LoginDTO) => {
 
-        const response = await fetch(`${baseURL}/auth/login`, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        const result = await response.json();
+    const response = await fetch(`${baseURL}/login`, {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    const result = await response.json();
 
-        return result as LoginReturnDTO;
-    }
-
+    return result;
 }

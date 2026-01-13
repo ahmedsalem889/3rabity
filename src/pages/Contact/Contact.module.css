@@ -1,0 +1,118 @@
+.hero {
+    height: 250px;
+    background: url('../../assets/header.jpg') center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.hero::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero h1 {
+    color: white;
+    font-size: 64px;
+    font-weight: 700px;
+}
+
+.container {
+    padding: 4rem 10%;
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+}
+
+.leftForm {
+    flex: 1;
+    min-width: 300px;
+}
+
+.leftForm h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    /* Rounded pill style from image */
+    background-color: white;
+    margin-bottom: 1.5rem;
+    font-family: inherit;
+}
+
+.textarea {
+    border-radius: 20px;
+    height: 150px;
+    resize: none;
+}
+
+.sendBtn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.rightInfo {
+    flex: 1;
+    min-width: 300px;
+    padding-left: 2rem;
+}
+
+.infoTitle {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.red {
+    color: var(--primary-color);
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.iconBox {
+    background-color: #FECACA;
+    /* Light red/pinkish bg from image */
+    color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+}
+
+.infoItem h3 {
+    margin: 0 0 0.2rem 0;
+    font-size: 1.1rem;
+}
+
+.infoItem p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+}
