@@ -5,7 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import About from './pages/About/About';
 import Booking from './pages/Booking/Booking';
 import Contact from './pages/Contact/Contact';
-import Home from './pages/Home/Home';
+import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';
 
 function App() {
