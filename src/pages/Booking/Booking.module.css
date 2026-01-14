@@ -73,6 +73,7 @@
 
 .group input,
 .group select,
+.group textarea,
 .groupFull input {
     padding: 0.8rem;
     border: 1px solid #ddd;

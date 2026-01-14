@@ -8,3 +8,5 @@ export const authorizedHeaders = {
     Authorization: `Barear ${accessToken}`,
     "Content-Type": "application/json",
 }
+
+export type Pagination = { page: number, limit: number, total: number, pages: number }
