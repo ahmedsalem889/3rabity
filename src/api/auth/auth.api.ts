@@ -1,25 +1,37 @@
-import { baseURL } from "../consts"
+import { baseURL } from "../consts";
 import type { LoginDTO, RegisterDTO } from "./auth.dto";
 
 
-export const register = async (data: RegisterDTO) => {
+const authBaseURL = `${baseURL}/auth`
+export const authAPI = {
 
-    const response = await fetch(`${baseURL}/register`, {
-        method: "POST",
-        body: JSON.stringify(data)
-    });
-    const result = await response.json()
 
-    return result;
-}
+    register: async (data: RegisterDTO) => {
 
-export const login = async (data: LoginDTO) => {
+        const response = await fetch(`${authBaseURL}/register`, {
+            method: "POST",
+            body: JSON.stringify(data)
+        });
+        const result = await response.json()
 
-    const response = await fetch(`${baseURL}/login`, {
-        method: "POST",
-        body: JSON.stringify(data)
-    })
-    const result = await response.json();
+        return result;
+    },
 
-    return result;
-}
+    login: async (data: LoginDTO) => {
+
+        const response = await fetch(`${authBaseURL}/login`, {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        const result = await response.json();
+
+        return result;
+    },
+
+    logout: async () => {
+        fetch(`${authBaseURL}/logout`, {
+            method: "POST",
+        })
+    }
+
+} 
