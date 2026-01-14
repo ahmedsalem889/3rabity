@@ -1,12 +1,12 @@
 import { baseURL } from "../consts";
-import type { LoginDTO, RegisterDTO } from "./auth.dto";
+import type { LoginDTO, LoginResponseDTO, RegisterDTO, RegisterResponseDTO } from "./auth.dto";
 
 
 const authBaseURL = `${baseURL}/auth`
-export const authAPI = {
+export const authApi = {
 
 
-    register: async (data: RegisterDTO) => {
+    register: async (data: RegisterDTO): Promise<RegisterResponseDTO> => {
 
         const response = await fetch(`${authBaseURL}/register`, {
             method: "POST",
@@ -17,7 +17,7 @@ export const authAPI = {
         return result;
     },
 
-    login: async (data: LoginDTO) => {
+    login: async (data: LoginDTO): Promise<LoginResponseDTO> => {
 
         const response = await fetch(`${authBaseURL}/login`, {
             method: "POST",

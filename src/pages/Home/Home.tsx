@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Home.module.css';
-import { FaTools, FaSprayCan, FaOilCan, FaCar, FaPhoneAlt, FaCogs } from 'react-icons/fa'; // Example icons
+import { FaCar, FaCogs, FaOilCan, FaPhoneAlt, FaSprayCan, FaTools } from 'react-icons/fa'; // Example icons
 import { FaWrench } from 'react-icons/fa6';
+import styles from './Home.module.css';
 
 
 const Home: React.FC = () => {
