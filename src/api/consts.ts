@@ -1,5 +1,7 @@
+import { getAccessToken } from "../utils/localstorage"
+
 export const baseURL = import.meta.env.VITE_BASE_URL
-export const accessToken = localStorage.getItem("accessToken")
+export const accessToken = getAccessToken()
 
 
 export const authorizedHeaders = {
