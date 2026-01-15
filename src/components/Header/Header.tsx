@@ -6,9 +6,24 @@ import { handleLogout } from '../../utils/auth';
 import styles from './Header.module.css';
 
 
+
 const Header: React.FC = () => {
+    const [isScrolled, setIsScrolled] = React.useState(false);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        // Check initial scroll position
+        handleScroll();
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header className={styles.header}>
+        <header className={`${styles.header} ${isScrolled ? styles.scrolled : styles.transparent}`}>
             <div className={styles.logo}>
                 <img src={Logo} alt="logo" />
             </div>
