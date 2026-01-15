@@ -89,6 +89,7 @@ const Booking: React.FC = () => {
                     <div className={styles.group}>
                         <label>Car </label>
                         <select
+                            disabled={isSubmitting}
                             value={formData.carId}
                             onChange={e => handleChangeCar(e.target.value)}
                         >
@@ -101,6 +102,7 @@ const Booking: React.FC = () => {
                         <div className={styles.group}>
                             <label>Choose your service</label>
                             <select
+                                disabled={isSubmitting}
                                 value={formData.serviceId}
                                 onChange={(e) => handleChangeService(e.target.value)}
                             >
@@ -113,7 +115,8 @@ const Booking: React.FC = () => {
                         </div>
                         <div className={styles.group}>
                             <label>Date</label>
-                            <input type="date" name='date'
+                            <input
+                                disabled={isSubmitting} type="date" name='date'
                                 value={formData.scheduledDate}
                                 onChange={(e) => handleChangeSchedualData(e.target.value)} />
                         </div>
@@ -122,7 +125,8 @@ const Booking: React.FC = () => {
                     <div className={styles.row}>
                         <div className={styles.group}>
                             <label>Notes</label>
-                            <textarea name='notes'
+                            <textarea disabled={isSubmitting}
+                                name='notes'
                                 value={formData.notes}
                                 onChange={(e) => handleChangeNotes(e.target.value)} />
                         </div>

@@ -1,8 +1,49 @@
-import React from 'react';
+import React, { useMemo, useState, type FormEvent } from 'react';
+import toast from 'react-hot-toast';
+import { FaEnvelope, FaInstagram, FaWhatsapp, FaYoutube } from 'react-icons/fa';
+import { contactApi } from '../../api/contact/contact.api';
+import type { ContactDTO } from '../../api/contact/contact.dto';
+import { handleLogout } from '../../utils/auth';
+import { getAuthUser } from '../../utils/localstorage';
 import styles from './Contact.module.css';
-import { FaEnvelope, FaWhatsapp, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const Contact: React.FC = () => {
+
+    const initialFormData = useMemo(() => {
+        let email = ""
+        try {
+            const authUser = getAuthUser();
+            email = authUser.email;
+        } catch (e) {
+            toast.error("Failed to get user")
+            handleLogout()
+        }
+        return {
+            email,
+            message: "",
+            title: ""
+        }
+    }, [])
+
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [contactFormData, setContactFormData] = useState<ContactDTO>(initialFormData)
+    const isValid = useMemo(() => Object.values(contactFormData).every(value => !!value), [contactFormData])
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setIsSubmitting(true)
+        try {
+            await contactApi.createContact(contactFormData)
+            toast.success("Contact sent successfully")
+            setContactFormData(initialFormData)
+        } catch (e) {
+            toast.error("Contact failed")
+        } finally {
+            setIsSubmitting(false)
+        }
+    }
+
+
     return (
         <div>
             <div className={styles.hero}>
@@ -10,21 +51,21 @@ const Contact: React.FC = () => {
             </div>
 
             <div className={styles.container}>
-                <div className={styles.leftForm}>
-                    <h2>Name</h2>
-                    <input type="text" className={styles.input} />
-
+                <form onSubmit={handleSubmit} className={styles.leftForm}>
                     <h2>Gmail</h2>
-                    <input type="email" className={styles.input} />
+                    <input disabled={isSubmitting} type="email" className={styles.input} value={contactFormData.email} onChange={e => setContactFormData(prev => ({ ...prev, email: e.target.value }))} />
 
                     <h2>Subject</h2>
-                    <input type="text" className={styles.input} />
+                    <input disabled={isSubmitting} type="text" className={styles.input} value={contactFormData.title} onChange={e => setContactFormData(prev => ({ ...prev, title: e.target.value }))} />
 
                     <h2>Your message</h2>
-                    <textarea className={styles.textarea}></textarea>
+                    <textarea disabled={isSubmitting} className={styles.textarea}
+                        value={contactFormData.message}
+                        onChange={e => setContactFormData(prev => ({ ...prev, message: e.target.value }))}
+                    />
 
-                    <button className={styles.sendBtn}>Send message</button>
-                </div>
+                    <button className={styles.sendBtn} disabled={!isValid || isSubmitting}>Send message</button>
+                </form>
 
                 <div className={styles.rightInfo}>
                     <h2 className={styles.infoTitle}><span className={styles.red}>Contact</span> us</h2>
