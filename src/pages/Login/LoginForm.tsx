@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { authApi } from "../../api/auth/auth.api"
-import { setAccessToken } from "../../utils/localstorage"
+import { setAccessToken, setAuthUser } from "../../utils/localstorage"
 
 export function LoginForm() {
   const [email, setEmail] = useState("")
@@ -11,9 +11,10 @@ export function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const { accessToken } = await authApi.login({ email, password })
-    if (accessToken) {
+    const { accessToken,user} = await authApi.login({ email, password })
+    if (accessToken && user) {
       setAccessToken(accessToken)
+      setAuthUser(user)
       navigate("/")
     }
   }
