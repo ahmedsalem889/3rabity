@@ -105,4 +105,8 @@
     border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
+
+    &:disabled {
+        opacity: 0.5;
+    }
 }

@@ -4,7 +4,7 @@ import type { getAllCarsDTO } from "./cars.dto";
 const carsBaseURL = `${baseURL}/cars`
 
 export const carsApi = {
-    getAll: async (): Promise<getAllCarsDTO> => {
+    getAllUserCars: async (): Promise<getAllCarsDTO> => {
         const response = await fetch(carsBaseURL, {
             headers: authorizedHeaders
         })

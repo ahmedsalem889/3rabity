@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import styles from "./Home.module.css"
 
 export function HeroSection() {
@@ -8,7 +9,7 @@ export function HeroSection() {
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum minus quia commodi ipsa esse veniam fugiat optio vero eos possimus asperiores, ullam beatae at expedita soluta repellat voluptas accusantium provident..
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum minus quia commodi ipsa esse veniam fugiat optio vero eos possimus asperiores, ullam beatae at expedita soluta repellat voluptas accusantium provident.
         </p>
-        <button className={styles.ctaButton}>Start Booking</button>
+        <Link to={"/booking"} className={styles.ctaButton}>Start Booking</Link>
       </div>
     </section>
   )

@@ -135,11 +135,25 @@ const dummyServices: GetServiceResponseDTO = {
 export const servicesApi = {
     getAllServices: async (): Promise<GetServiceResponseDTO> => {
 
-        return Promise.resolve(dummyServices);
-        const response = await fetch(servicesBaseURL, {
-            headers: authorizedHeaders
-        })
+        try {
 
-        return await response.json()
+            // return Promise.resolve(dummyServices);
+            const response = await fetch(servicesBaseURL, {
+                headers: authorizedHeaders
+            })
+
+            return await response.json()
+        } catch (e) {
+            console.log(e);
+            return {
+                services: [],
+                pagination: {
+                    limit: 0,
+                    page: 0,
+                    pages: 0,
+                    total: 0
+                }
+            }
+        }
     }
 }

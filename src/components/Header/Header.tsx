@@ -1,8 +1,9 @@
 import React from 'react';
+import { BiLogOut } from 'react-icons/bi';
 import { NavLink } from 'react-router-dom';
-import styles from './Header.module.css';
-import { FaSearch } from 'react-icons/fa';
 import Logo from '../../assets/arbity_Red.png';
+import { handleLogout } from '../../utils/auth';
+import styles from './Header.module.css';
 
 
 const Header: React.FC = () => {
@@ -18,7 +19,7 @@ const Header: React.FC = () => {
                 <NavLink to="/about" className={({ isActive }) => isActive ? `${styles.link} ${styles.active}` : styles.link}>About us</NavLink>
             </nav>
             <div className={styles.actions}>
-                <button className={styles.searchBtn}><FaSearch /></button>
+                <button className={styles.searchBtn} onClick={handleLogout}><BiLogOut /></button>
             </div>
         </header>
     );
