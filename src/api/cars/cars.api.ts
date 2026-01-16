@@ -1,14 +1,17 @@
-import { authorizedHeaders, baseURL } from "../consts";
+import { baseURL, getAuthorizedHeaders } from "../consts";
 import type { getAllCarsDTO } from "./cars.dto";
 
 const carsBaseURL = `${baseURL}/cars`
 
 export const carsApi = {
     getAllUserCars: async (): Promise<getAllCarsDTO> => {
+
         const response = await fetch(carsBaseURL, {
-            headers: authorizedHeaders
+            headers: getAuthorizedHeaders()
         })
 
-        return response.json();
+        if (response.ok) return await response.json()
+
+        throw new Error("Failed to fetch cars")
     }
 }

@@ -1,4 +1,4 @@
-import { authorizedHeaders, baseURL } from "../consts";
+import { baseURL, getAuthorizedHeaders } from "../consts";
 import type { createBookingDTO } from "./bookings.dto";
 
 const bookingsBaseURL = `${baseURL}/bookings`
@@ -11,7 +11,7 @@ export const bookingApi = {
         const response = await fetch(bookingsBaseURL, {
             method: "POST",
             body: JSON.stringify(data),
-            headers: authorizedHeaders
+            headers: getAuthorizedHeaders()
         })
 
         if (response.ok) return await response.json()
