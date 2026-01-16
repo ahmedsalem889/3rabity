@@ -1,19 +1,11 @@
-import { baseURL, defaultHeaders } from "../consts";
+import { apiClient } from "../../lib/api-client";
 import type { GetComponentsDTO } from "./components.dto";
-
-const componentsBaseURL = `${baseURL}/components`
-
 
 export const componentsApi = {
     getAll: async (): Promise<GetComponentsDTO> => {
 
         try {
-
-            const result = await fetch(componentsBaseURL, {
-                method: "GET",
-                headers: defaultHeaders
-            })
-            return await result.json()
+            return await apiClient.get('/components');
         } catch (e) {
             return {
                 components: [],

@@ -8,12 +8,16 @@ export const removeAccessToken = () => localStorage.removeItem(accessTokenKey)
 const authUserKey = "auth-user";
 
 export const setAuthUser = (user: User) => localStorage.setItem(authUserKey, JSON.stringify(user))
-export const getAuthUser = () => {
+export const getAuthUser = (): User | null => {
     const localStorageUser = localStorage.getItem(authUserKey)
     if (localStorageUser) {
-        return JSON.parse(localStorageUser) as User
-    } else {
-        throw new Error("No user found")
+        try {
+            return JSON.parse(localStorageUser) as User
+        } catch (error) {
+            console.error("Failed to parse user from local storage", error)
+            return null
+        }
     }
+    return null
 }
 export const removeAuthUser = () => localStorage.removeItem(authUserKey)

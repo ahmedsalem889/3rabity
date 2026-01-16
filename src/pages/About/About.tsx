@@ -1,7 +1,7 @@
 import React from 'react';
+import { FaArrowsAltH, FaShieldAlt } from 'react-icons/fa'; // Icons for cards
+import concept from "../../assets/about.jpg";
 import styles from './About.module.css';
-import { FaShieldAlt, FaMedal, FaArrowsAltH } from 'react-icons/fa'; // Icons for cards
-import concept from "../../assets/about.jpg"
 
 const About: React.FC = () => {
     return (

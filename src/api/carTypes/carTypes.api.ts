@@ -1,15 +1,8 @@
-import { baseURL, getAuthorizedHeaders } from "../consts";
-
-const carTypesBaseURL = `${baseURL}/car-types`
-
+import { apiClient } from "../../lib/api-client";
 
 export const carTypesApi = {
 
     getAll: async () => {
-        const response = await fetch(carTypesBaseURL, {
-            headers: getAuthorizedHeaders()
-        })
-
-        return await response.json()
+        return apiClient.get('/car-types');
     }
 }

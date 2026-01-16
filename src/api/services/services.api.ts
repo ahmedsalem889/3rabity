@@ -1,19 +1,12 @@
+import { apiClient } from "../../lib/api-client";
 import type { GetComponentsDTO } from "../components/components.dto";
-import { baseURL, defaultHeaders } from "../consts";
 import type { GetServiceResponseDTO } from "./services.dto";
 
-const servicesBaseURL = `${baseURL}/services`
 export const servicesApi = {
     getAllServices: async (): Promise<GetServiceResponseDTO> => {
 
         try {
-
-            // return Promise.resolve(dummyServices);
-            const response = await fetch(servicesBaseURL, {
-                headers: defaultHeaders
-            })
-
-            return await response.json()
+            return await apiClient.get('/services');
         } catch (e) {
             return {
                 services: [],
@@ -35,13 +28,10 @@ export const servicesApi = {
         carTypeId: string
     }): Promise<GetComponentsDTO> => {
 
-        const url = [servicesBaseURL, serviceId, "car-types", carTypeId, 'components'].join('/')
+        const url = `/services/${serviceId}/car-types/${carTypeId}/components`;
 
         try {
-            const response = await fetch(url, {
-                headers: defaultHeaders
-            })
-            return await response.json()
+            return await apiClient.get(url);
         } catch (e) {
             return {
                 components: [],

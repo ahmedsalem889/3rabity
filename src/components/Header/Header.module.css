@@ -3,11 +3,15 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5%;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   position: fixed;
   width: 100vw;
   top: 0;
   z-index: 1000;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  color: var(--text-color);
 }
 
 .transparent {
@@ -41,10 +45,6 @@
 .link {
   text-decoration: none;
   color: var(--text-color);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 100%;
-  transition: color 0.3s;
 }
 
 .link:hover,
@@ -63,4 +63,19 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.transparent .user {
+  color: white;
+}
+
+.scrolled .user {
+  color: var(--text-color);
 }

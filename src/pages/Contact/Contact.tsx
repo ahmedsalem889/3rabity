@@ -3,20 +3,21 @@ import toast from 'react-hot-toast';
 import { FaEnvelope, FaInstagram, FaWhatsapp, FaYoutube } from 'react-icons/fa';
 import { contactApi } from '../../api/contact/contact.api';
 import type { ContactDTO } from '../../api/contact/contact.dto';
-import { handleLogout } from '../../utils/auth';
+import { useAuth } from '../../context/AuthContext';
 import { getAuthUser } from '../../utils/localstorage';
 import styles from './Contact.module.css';
 
 const Contact: React.FC = () => {
+    const auth = useAuth()
 
     const initialFormData = useMemo(() => {
         let email = ""
         try {
             const authUser = getAuthUser();
-            email = authUser.email;
+            email = authUser?.email || "";
         } catch (e) {
             toast.error("Failed to get user")
-            handleLogout()
+            auth.logout()
         }
         return {
             email,

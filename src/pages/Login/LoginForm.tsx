@@ -1,21 +1,25 @@
 import { useState } from "react"
+import toast from "react-hot-toast"
 import { useNavigate } from "react-router-dom"
-import { authApi } from "../../api/auth/auth.api"
-import { setAccessToken, setAuthUser } from "../../utils/localstorage"
+import { useAuth } from "../../context/AuthContext"
 
 export function LoginForm() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const { login } = useAuth()
 
   const navigate = useNavigate()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const { accessToken,user} = await authApi.login({ email, password })
-    if (accessToken && user) {
-      setAccessToken(accessToken)
-      setAuthUser(user)
+    try {
+      await login({ email, password })
       navigate("/")
+    } catch (error) {
+      console.error("Login failed", error)
+      toast.error("Login failed");
+
+      // potentially set error state here to show to user
     }
   }
 
