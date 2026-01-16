@@ -144,7 +144,6 @@ export const servicesApi = {
 
             return await response.json()
         } catch (e) {
-            console.log(e);
             return {
                 services: [],
                 pagination: {

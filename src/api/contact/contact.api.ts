@@ -1,14 +1,23 @@
-import { baseURL } from "../consts";
+import { baseURL, defaultHeaders } from "../consts";
 import type { ContactDTO } from "./contact.dto";
 
 const contactBaseURL = `${baseURL}/contacts`
 
 export const contactApi = {
     createContact: async (data: ContactDTO) => {
-        return await (await fetch(`${contactBaseURL}`, {
+
+
+        const response = await fetch(`${contactBaseURL}`, {
             method: "POST",
-            body: JSON.stringify(data)
-        })).json()
+            body: JSON.stringify(data),
+            headers: defaultHeaders
+        });
+
+        if (response.ok) {
+            return await response.json()
+        }
+
+        throw new Error(await response.json())
 
     }
 }

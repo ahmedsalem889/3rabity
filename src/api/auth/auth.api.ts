@@ -1,4 +1,4 @@
-import { baseURL } from "../consts";
+import { baseURL, defaultHeaders } from "../consts";
 import type { LoginDTO, LoginResponseDTO, RegisterDTO, RegisterResponseDTO } from "./auth.dto";
 
 
@@ -10,7 +10,8 @@ export const authApi = {
 
         const response = await fetch(`${authBaseURL}/register`, {
             method: "POST",
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            headers: defaultHeaders
         });
         const result = await response.json()
 
@@ -21,7 +22,8 @@ export const authApi = {
 
         const response = await fetch(`${authBaseURL}/login`, {
             method: "POST",
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            headers: defaultHeaders
         })
         const result = await response.json();
 

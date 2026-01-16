@@ -8,12 +8,14 @@ export const bookingApi = {
 
     createBooking: async (data: createBookingDTO) => {
 
-        fetch(bookingsBaseURL, {
+        const response = await fetch(bookingsBaseURL, {
             method: "POST",
             body: JSON.stringify(data),
             headers: authorizedHeaders
         })
 
+        if (response.ok) return await response.json()
 
+        throw new Error(await response.json())
     }
 }

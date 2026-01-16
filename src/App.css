@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
     --primary-color: #C41E3A;
     --text-color: #333;
@@ -5,6 +7,10 @@
     --dark-bg: #1f1f1f;
     --input-bg: #f9f9f9;
     --border-color: #ddd;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
 }
 
 * {

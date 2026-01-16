@@ -1,3 +1,4 @@
+import type { Component } from "react";
 import type { User } from "../users/users.dto";
 
 export type Booking = {
@@ -7,6 +8,9 @@ export type Booking = {
     serviceId: string;
     scheduledDate: string;
     notes: string;
+    components: Component[]
 }
 
-export type createBookingDTO = Omit<Booking, "id" | "user">;
+export type createBookingDTO = Omit<Booking, "id" | "user" | "components"> & {
+    components: string[]
+}
