@@ -72,7 +72,7 @@ const Booking: React.FC = () => {
 
     const getCarOptionLabel = (car: Car) => `${car.color} ${car.type.maker} ${car.model} (${car.year})`
 
-
+    const disableChooseComponents = useMemo(() => !formData.serviceId || !formData.carId, [formData.serviceId, formData.carId])
     const validated = useMemo(() => Object.values(formData).every(value => !!value), [formData])
 
 
@@ -145,7 +145,7 @@ const Booking: React.FC = () => {
                             options={components.map(c => ({ id: c.id, label: c.name }))}
                             value={formData.components}
                             onChange={(newValues) => handleChangeField("components", newValues)}
-                            disabled={isSubmitting}
+                            disabled={isSubmitting || disableChooseComponents}
                             placeholder="Select components..."
                         />
                     </div>
