@@ -1,4 +1,4 @@
-import { authorizedHeaders, baseURL } from "../consts";
+import { baseURL, defaultHeaders } from "../consts";
 import type { GetComponentsDTO } from "./components.dto";
 
 const componentsBaseURL = `${baseURL}/components`
@@ -11,7 +11,7 @@ export const componentsApi = {
 
             const result = await fetch(componentsBaseURL, {
                 method: "GET",
-                headers: authorizedHeaders
+                headers: defaultHeaders
             })
             return await result.json()
         } catch (e) {

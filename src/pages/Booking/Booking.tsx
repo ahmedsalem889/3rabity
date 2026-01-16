@@ -4,7 +4,6 @@ import { bookingApi } from '../../api/bookings/booking.api';
 import type { createBookingDTO } from '../../api/bookings/bookings.dto';
 import { carsApi } from '../../api/cars/cars.api';
 import type { Car } from '../../api/cars/cars.dto';
-import { componentsApi } from '../../api/components/components.api';
 import type { Component } from '../../api/components/components.dto';
 import { servicesApi } from '../../api/services/services.api';
 import type { Service } from '../../api/services/services.dto';
@@ -57,11 +56,19 @@ const Booking: React.FC = () => {
     }, [])
     useEffect(() => {
         const handleGetComponents = async () => {
-            const componentsData = await componentsApi.getAll()
+            if (!formData.serviceId || !formData.carId) return setComponents([]);
+
+            const carTypeId = cars.find(car => car.id === formData.carId)?.type.id
+
+            if (!carTypeId) return setComponents([])
+            const componentsData = await servicesApi.getServiceComponentsWithCarType({
+                serviceId: formData.serviceId,
+                carTypeId
+            })
             setComponents(componentsData?.components)
         }
         handleGetComponents()
-    }, [])
+    }, [formData.serviceId, formData.carId])
 
     const getCarOptionLabel = (car: Car) => `${car.color} ${car.type.maker} ${car.model} (${car.year})`
 
@@ -114,6 +121,24 @@ const Booking: React.FC = () => {
                             {cars.map(car => <option value={car.id}>{getCarOptionLabel(car)}</option>)}
                         </select>
                     </div>
+
+
+
+                    <div className={styles.group}>
+                        <label>Choose your service</label>
+                        <select
+                            disabled={isSubmitting}
+                            value={formData.serviceId}
+                            onChange={(e) => handleChangeService(e.target.value)}
+                        >
+                            <option value={undefined}>Select a service</option>
+                            {
+                                services.map(service => <option value={service.id} key={service.id}>
+                                    {service.name}
+                                </option>)
+                            }
+                        </select>
+                    </div>
                     <div className={styles.group}>
                         <label>Components</label>
                         <MultiSelectComboBox
@@ -126,31 +151,14 @@ const Booking: React.FC = () => {
                     </div>
 
 
-                    <div className={styles.row}>
-                        <div className={styles.group}>
-                            <label>Choose your service</label>
-                            <select
-                                disabled={isSubmitting}
-                                value={formData.serviceId}
-                                onChange={(e) => handleChangeService(e.target.value)}
-                            >
-                                <option value={undefined}>Select a service</option>
-                                {
-                                    services.map(service => <option value={service.id} key={service.id}>
-                                        {service.name}
-                                    </option>)
-                                }
-                            </select>
-                        </div>
-                        <div className={styles.group}>
-                            <label>Date</label>
-                            <input
-                                disabled={isSubmitting} type="date" name='date'
-                                value={formData.scheduledDate}
-                                onChange={(e) => handleChangeSchedualData(e.target.value)} />
-                        </div>
-
+                    <div className={styles.group}>
+                        <label>Date</label>
+                        <input
+                            disabled={isSubmitting} type="date" name='date'
+                            value={formData.scheduledDate}
+                            onChange={(e) => handleChangeSchedualData(e.target.value)} />
                     </div>
+
                     <div className={styles.row}>
                         <div className={styles.group}>
                             <label>Notes</label>
