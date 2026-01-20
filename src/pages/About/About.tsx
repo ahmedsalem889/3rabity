@@ -14,12 +14,10 @@ const About: React.FC = () => {
             </div>
             <section className={styles.introSection}>
                 <div className={styles.introText}>
-                    <h2 className={styles.brandTitle}>rabiity</h2>
-                    <p>
-                        Nulla et ante et dolor convallis mattis. Sed quis quam id nisl ullamcorper fermentum.
-                        Curabitur in massa eu augue imperdiet dictum id id nulla. In ut eros vitae diam aliquam convallis.
-                        Quisque dapibus congue lacus in posuere.
-                    </p>
+                    <h2 className={styles.brandTitle}>Arabity</h2>
+                    <p> ARBITY is a professional auto service center dedicated to delivering reliable, high-quality vehicle maintenance and repair solutions. We combine experienced technicians with advanced diagnostic technology to ensure accurate service for every vehicle.</p>
+                    <p> Our mission is to provide safe, efficient, and transparent automotive care that customers can trust. Whether it is routine maintenance or complex repairs, we focus on precision, performance, and long-term vehicle reliability.</p>
+                    <p> At ARBITY, customer satisfaction comes first. We believe in honest pricing, clear communication, and professional service standards that keep your car running at its best.</p>
                 </div>
                 <div className={styles.introImage}>
                     <img src={concept} alt="Car Concept" />
@@ -30,12 +28,13 @@ const About: React.FC = () => {
                 <div className={styles.card}>
                     <div className={styles.iconWrapper}><div className={styles.circleIcon}><span>BeReal</span></div></div>
                     <h3>Realability</h3>
-                    <p>Nulla et ante et dolor convallis mattis. Sed quis quam id nisl ullamcorper fermentum.</p>
+                    <p>We deliver dependable automotive services you can trust, using
+                        proven methods and high-quality parts to ensure consistent performance.</p>
                 </div>
                 <div className={styles.card}>
                     <div className={styles.iconWrapper}><div className={styles.circleIcon}><FaShieldAlt /></div></div>
                     <h3>Professionalism</h3>
-                    <p>Nulla et ante et dolor convallis mattis. Sed quis quam id nisl ullamcorper fermentum.</p>
+                    <p>Our certified technicians follow industry standards and best practices to provide accurate diagnostics and expert repairs.</p>
                 </div>
                 <div className={styles.card}>
                     <div className={styles.iconWrapper}>
@@ -44,7 +43,7 @@ const About: React.FC = () => {
                         </div>
                     </div>
                     <h3>Value</h3>
-                    <p>Nulla et ante et dolor convallis mattis. Sed quis quam id nisl ullamcorper fermentum.</p>
+                    <p>We offer competitive pricing without compromising quality, ensuring excellent value for every service we provide.</p>
                 </div>
             </section>
         </div>

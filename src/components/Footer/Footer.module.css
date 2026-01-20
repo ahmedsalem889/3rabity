@@ -7,17 +7,23 @@
 
 .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: top;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 330px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 2rem;
 }
 
+.content img {
+    width: 200px;
+    margin-top: -33px;
+}
+
 .column h3 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-weight: 650;
 }
 
 .column ul {
@@ -27,9 +33,9 @@
 }
 
 .column ul li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 8px;
     color: #aaa;
-    font-size: 0.9rem;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -52,7 +58,7 @@
     color: white;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    text-align: left;
+    text-align: center;
     font-size: 0.8rem;
     display: flex;
     align-items: center;

@@ -1,6 +1,7 @@
 .hero {
     height: 250px;
     background: url('../../assets/header.jpg') center/cover;
+    background-position: 60% 55%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -82,11 +83,13 @@
 }
 
 .infoTitle {
-    font-size: 2.5rem;
+    font-weight: 700;
+    font-size: 50px;
     margin-bottom: 2rem;
+    line-height: 100%;
 }
 
-.red {
+.infoTitle span {
     color: var(--primary-color);
 }
 
@@ -99,7 +102,6 @@
 
 .iconBox {
     background-color: #FECACA;
-    /* Light red/pinkish bg from image */
     color: var(--primary-color);
     width: 60px;
     height: 60px;

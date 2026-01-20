@@ -1,16 +1,16 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaXTwitter } from 'react-icons/fa6'; // Assuming fa6 or typical icons
+import { FaApple, FaGooglePlay } from 'react-icons/fa6'; // Assuming fa6 or typical icons
+import Logo from '../../assets/arbity_white.png';
 import styles from './Footer.module.css';
+
 
 const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
         <div className={styles.brand}>
-          <h2>rabiity</h2>
-          <div className={styles.socials}>
-            <FaFacebookF /> <FaInstagram /> <FaXTwitter />
-          </div>
+          <img src={Logo} alt="logo" />
         </div>
 
         <div className={styles.column}>
@@ -24,7 +24,9 @@ const Footer: React.FC = () => {
               "Download our app now" column: App Store, Google Play, App Gallery buttons.
           */}
           <div className={styles.socialRow}>
-            <FaFacebookF /> <FaInstagram /> <FaXTwitter />
+            <a href="https://www.facebook.com/3rbity.eg/" target='_blank'><FaFacebookF /></a>
+            <a href="https://www.instagram.com/3rbity.eg/" target='_blank'><FaInstagram /></a>
+            <a href="https://twitter.com/3rbity_eg" target='_blank'><FaXTwitter /></a>
           </div>
         </div>
 
@@ -40,14 +42,14 @@ const Footer: React.FC = () => {
         <div className={styles.column}>
           <h3>Download our app now</h3>
           <div className={styles.appButtons}>
-            <button className={styles.storeBtn}>App Store</button>
-            <button className={styles.storeBtn}>Google Play</button>
-            <button className={styles.storeBtn}>App Gallery</button>
+            <button className={styles.storeBtn}> <span><FaApple /></span> App Store </button>
+            <button className={styles.storeBtn}> <span><FaGooglePlay /></span> Google Play </button>
+            <button className={styles.storeBtn}> <span></span> App Gallery </button>
           </div>
         </div>
       </div>
       <div className={styles.copyright}>
-        © 2025 All Right Reserved
+        © 2026 All rights reserved
       </div>
     </footer>
   );

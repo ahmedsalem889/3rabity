@@ -1,17 +1,13 @@
 export function Services() {
   const services = [
-    {
-      icon: "/icons/maintenance.svg",
-      title: "Car maintenance",
-      color: "#c41e3a",
-    },
-    { icon: "/icons/alert.svg", title: "Car Inspection", color: "#c41e3a" },
-    { icon: "/icons/oil.svg", title: "Change oil", color: "#c41e3a" },
-    { icon: "/icons/spray.svg", title: "Car Wash", color: "#c41e3a" },
-    { icon: "/icons/spray.svg", title: "Car Spray", color: "#c41e3a" },
-    { icon: "/icons/wrench.svg", title: "Fix Brake", color: "#c41e3a" },
-    { icon: "/icons/wheel.svg", title: "Car Accessories", color: "#c41e3a" },
-    { icon: "/icons/phone.svg", title: "Call service", color: "#c41e3a" },
+    { icon: "/icons/maintenance.svg", title: "Car maintenance", color: "#c41e3a", content: "We provide complete car maintenance services using advanced tools and professional technicians to ensure top performance and safety." },
+    { icon: "/icons/alert.svg", title: "Car Inspection", color: "#c41e3a", content: "Comprehensive vehicle inspection to detect potential issues early, with a detailed report on your car’s condition." },
+    { icon: "/icons/oil.svg", title: "Change oil", color: "#c41e3a", content: "High-quality engine oil change service to improve engine performance and extend its lifespan." },
+    { icon: "/icons/spray.svg", title: "Car Wash", color: "#c41e3a", content: "Professional interior and exterior car wash to keep your vehicle clean, shiny, and fresh." },
+    { icon: "/icons/spray.svg", title: "Car Spray", color: "#c41e3a", content: "Expert car spray and painting services using premium materials for a smooth and durable finish." },
+    { icon: "/icons/wrench.svg", title: "Fix Brake", color: "#c41e3a", content: "Brake system inspection and repair to ensure maximum safety and reliable stopping power." },
+    { icon: "/icons/wheel.svg", title: "Car Accessories", color: "#c41e3a", content: "A wide range of high-quality car accessories designed to enhance comfort, style, and functionality." },
+    { icon: "/icons/phone.svg", title: "Call service", color: "#c41e3a", content: "Contact us easily to request services or get support — our team is always ready to help." },
   ];
 
   const firstColumnServices = services.slice(0, 4);
@@ -48,7 +44,7 @@ export function Services() {
                     {service.title}
                   </h6>
                   <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit!
+                    {service.content}
                   </p>
                 </div>
               </div>
@@ -58,7 +54,7 @@ export function Services() {
           {/* Middle Column - Image */}
           <div className="flex items-center justify-center order-3 md:order-2 py-6 md:py-0">
             <img
-              src="/images/group-2019.png"
+              src="/images/mobile.png"
               alt=""
               className="w-full max-w-[250px] sm:max-w-[300px] lg:max-w-full h-auto object-contain"
               loading="lazy"
@@ -84,7 +80,7 @@ export function Services() {
                     {service.title}
                   </h6>
                   <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit!
+                    {service.content}
                   </p>
                 </div>
               </div>

@@ -2,7 +2,8 @@ export function DownloadApp() {
   return (
     <section className="py-12 bg-white text-center">
       <div className="w-full px-4">
-        <h2 className="mb-3 font-bold" style={{ fontSize: "2.5rem" }}>
+        <img src="src\assets\arbity_Red.png" alt="" style={{ position: "relative", width: "500px", top: "-100px", left: "690px", marginBottom: "-226px", marginTop: "-118px" }} />
+        <h2 className="mb-3 font-bold" style={{ fontSize: "3.5rem" }}>
           Download App Now
         </h2>
         <p className="text-gray-500 mb-6">

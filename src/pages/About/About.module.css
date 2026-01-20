@@ -31,7 +31,7 @@
     align-items: center;
     padding: 4rem 10%;
     gap: 4rem;
-    height: 650px;
+    height: 600px;
 }
 
 .introText {
@@ -42,11 +42,14 @@
     color: var(--primary-color);
     font-size: 2rem;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .introText p {
-    line-height: 1.6;
+    line-height: 1.5;
     color: #666;
+    margin-bottom: 10px;
+    font-size: 18px;
 }
 
 .introImage {
@@ -55,7 +58,7 @@
 
 .introImage img {
     width: 100%;
-    border-radius: 12px;
+    border-radius: 15px;
 }
 
 .cardsSection {
@@ -84,29 +87,31 @@
 }
 
 .circleIcon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: var(--primary-color);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 30px;
     font-weight: bold;
 }
 
 .circleIcon span {
-    font-size: 0.8rem;
+    font-size: 15px;
 }
 
 .card h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .card p {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 16px;
     line-height: 1.5;
 }

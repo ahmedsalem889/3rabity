@@ -69,39 +69,43 @@ const Contact: React.FC = () => {
                 </form>
 
                 <div className={styles.rightInfo}>
-                    <h2 className={styles.infoTitle}><span className={styles.red}>Contact</span> us</h2>
-
-                    <div className={styles.infoItem}>
-                        <div className={styles.iconBox}><FaEnvelope /></div>
-                        <div>
-                            <h3>Gmail</h3>
-                            <p>arabity@gmail.com</p>
+                    <h2 className={styles.infoTitle}><span>Contact</span> us</h2>
+                    <a href="mailto:arabity@gmail.com" target='_blank'>
+                        <div className={styles.infoItem}>
+                            <div className={styles.iconBox}><FaEnvelope /></div>
+                            <div>
+                                <h3>Gmail</h3>
+                                <p>arabity@gmail.com</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div className={styles.infoItem}>
-                        <div className={styles.iconBox}><FaWhatsapp /></div>
-                        <div>
-                            <h3>Whats app</h3>
-                            <p>000000000000</p>
+                    </a>
+                    <a href="https://wa.me/201010151412" target='_blank'>
+                        <div className={styles.infoItem}>
+                            <div className={styles.iconBox}><FaWhatsapp /></div>
+                            <div>
+                                <h3>Whats app</h3>
+                                <p>01010151412</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div className={styles.infoItem}>
-                        <div className={styles.iconBox}><FaInstagram /></div>
-                        <div>
-                            <h3>Instagram</h3>
-                            <p>@arabity</p>
+                    </a>
+                    <a href="https://www.instagram.com" target='_blank'>
+                        <div className={styles.infoItem}>
+                            <div className={styles.iconBox}><FaInstagram /></div>
+                            <div>
+                                <h3>Instagram</h3>
+                                <p>arabity</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div className={styles.infoItem}>
-                        <div className={styles.iconBox}><FaYoutube /></div>
-                        <div>
-                            <h3>You tube</h3>
-                            <p>@arabity</p>
+                    </a>
+                    <a href="https://www.youtube.com" target='_blank'>
+                        <div className={styles.infoItem}>
+                            <div className={styles.iconBox}><FaYoutube /></div>
+                            <div>
+                                <h3>YouTube</h3>
+                                <p>arabity</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
 
                 </div>
             </div>
